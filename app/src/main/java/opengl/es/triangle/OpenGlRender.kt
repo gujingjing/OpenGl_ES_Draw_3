@@ -14,19 +14,36 @@ import opengl.es.util.BufferUtil
  */
 class OpenGlRender :GLSurfaceView.Renderer {
 
-    private var mTriangleArray = floatArrayOf(0f, 1f, 0f, -1f, -1f, 0f, 1f, -1f, 0f)
+    //三角形的顶点坐标
+    private var mTriangleArray = floatArrayOf(0f, 1f, 0f, //上
+                                    -1f, -1f, 0f, //左下
+                                    1f, -1f, 0f)//右下
+    //三角形绘制缓冲
     private var mTriangleBuffer: FloatBuffer? = null
 
-
+    //绘制的颜色数组
     private var mColorArray = floatArrayOf(1f, 0f, 0f, 1f, //红
             0f, 1f, 0f, 1f, //绿
             0f, 0f, 1f, 1f      //蓝
     )
+    //颜色数组缓冲
     private var mColorBuffer: FloatBuffer? = null
 
     //正方形的四个顶点
     private var quateBuffer: FloatBuffer? = null
-    private var mQuateArray = floatArrayOf(-1f, -1f, 0f, 1f, -1f, 0f, -1f, 1f, 0f, 1f, 1f, 0f)
+    private var mQuateArray = floatArrayOf(-1f, -1f, 0f,//左下
+                                            1f, -1f, 0f,//右下
+                                            -1f, 1f, 0f,//左上
+                                                1f, 1f, 0f)//右上
+
+//    private var mQuateArray = floatArrayOf(1f, 1f, 0f,//右上
+//            -1f, 1f, 0f,//左上
+//            -1f, -1f, 0f,//左下
+//            1f, -1f, 0f)//右下
+
+    //保存，绘制的位置
+    //0-3分别表示  右上、左上、左下、右下
+    private val VERTEX_INDEX = shortArrayOf(0, 1, 2, 0, 2, 3)
 
 
     override fun onDrawFrame(gl: GL10?) {

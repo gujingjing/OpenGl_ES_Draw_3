@@ -17,24 +17,23 @@ class BufferUtil {
         @JvmStatic
         fun floatToBuffer(a: FloatArray): FloatBuffer? {
             //先初始化buffer，数组的长度*4，因为一个float占4个字节
-            val mbb = ByteBuffer.allocateDirect(a.size * 4)
+            var mbb = ByteBuffer.allocateDirect(a.size * 4)
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
             var mBuffer = mbb.asFloatBuffer()
-            mBuffer?.put(a)
-            mBuffer?.position(0)
+            mBuffer.put(a)
+            mBuffer.position(0)
             return mBuffer
         }
 
         @JvmStatic
-        fun intToBuffer(a: IntArray): IntBuffer {
+        fun intToBuffer(a: IntArray): IntBuffer? {
 
-            val intBuffer: IntBuffer
             //先初始化buffer，数组的长度*4，因为一个float占4个字节
-            val mbb = ByteBuffer.allocateDirect(a.size * 4)
+            var mbb = ByteBuffer.allocateDirect(a.size * 4)
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
-            intBuffer = mbb.asIntBuffer()
+            var intBuffer = mbb.asIntBuffer()
             intBuffer.put(a)
             intBuffer.position(0)
             return intBuffer
