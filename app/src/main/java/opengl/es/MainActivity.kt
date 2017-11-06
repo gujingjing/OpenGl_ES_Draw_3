@@ -5,9 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import gjj.retrofit.design.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import opengl.es.triangle.MyRender
-import opengl.es.triangle.MyThreeRender
-import opengl.es.triangle.OpenGlRender
+import opengl.es.graph.Triangle
+import opengl.es.graph.TriangleWithCamera
 import opengl.es.util.Utils
 
 class MainActivity : AppCompatActivity() {
@@ -26,10 +25,23 @@ class MainActivity : AppCompatActivity() {
 
         //设置glsurfaceview的版本
         glsurfaceview.setEGLContextClientVersion(2)
-        //设置render
-//        glsurfaceview.setRenderer(MyRender())
-        glsurfaceview.setRenderer(MyThreeRender())
-//        glsurfaceview.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+
+        //三角形
+//        glsurfaceview.setRenderer(Triangle())
+        //等腰三角形
+        glsurfaceview.setRenderer(TriangleWithCamera())
+
+
+
+
+
+
+
+
+
+
+
+
         /**
          * 渲染模式又两种
          * 1. RENDERMODE_WHEN_DIRTY
@@ -39,8 +51,6 @@ class MainActivity : AppCompatActivity() {
          * 这种会不停的自动渲染
          */
         glsurfaceview.renderMode=GLSurfaceView.RENDERMODE_WHEN_DIRTY
-
-
 
     }
 

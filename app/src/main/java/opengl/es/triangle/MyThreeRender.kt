@@ -21,6 +21,7 @@ class MyThreeRender :GLSurfaceView.Renderer {
                     + " gl_Position = vPosition;\n"
                     + "}")
 
+
     private val FRAGMENT_SHADER = (
             "precision mediump float;\n"
                     + "void main() {\n"
@@ -28,10 +29,16 @@ class MyThreeRender :GLSurfaceView.Renderer {
                     + "}")
 
     //三角形vertex顶点的坐标
-    private val VERTEX = floatArrayOf(// in counterclockwise order:
-            0f, 1f, 0f, // top
-            -0.5f, -1f, 0f, // bottom left
-            1f, -1f, 0f)// bottom right
+//    private val VERTEX = floatArrayOf(// in counterclockwise order:
+//            0f, 1f, 0f, // top
+//            -0.5f, -1f, 0f, // bottom left
+//            1f, -1f, 0f)// bottom right
+
+    private val VERTEX = floatArrayOf(0.5f,  0.5f, 0.0f, // top
+            -0.5f, -0.5f, 0.0f, // bottom left
+            0.5f, -0.5f, 0.0f ) // bottom right
+
+
 
     private var mVertexBuffer: FloatBuffer?=null
 

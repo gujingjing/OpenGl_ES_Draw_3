@@ -5,6 +5,7 @@ import android.app.ActivityManager
 import android.app.Activity
 import android.content.Context
 import android.opengl.GLES20
+import java.nio.FloatBuffer
 
 
 /**
@@ -35,5 +36,25 @@ class Utils {
             GLES20.glCompileShader(shader)
             return shader
         }
+        /**
+         * 初始化程序的加载
+         */
+//        @JvmStatic fun init(vertexBuffer:FloatBuffer?,coords:FloatArray,vertexShaderCode:String,
+//                            fragmentShaderCode:String,mProgram:Int){
+//            vertexBuffer = BufferUtil.floatToBuffer(coords)
+//            val vertexShader = Utils.loadShader(GLES20.GL_VERTEX_SHADER,
+//                    vertexShaderCode)
+//            val fragmentShader = Utils.loadShader(GLES20.GL_FRAGMENT_SHADER,
+//                    fragmentShaderCode)
+//
+//            //创建一个空的OpenGLES程序
+//            mProgram = GLES20.glCreateProgram()
+//            //将顶点着色器加入到程序
+//            GLES20.glAttachShader(mProgram, vertexShader)
+//            //将片元着色器加入到程序中
+//            GLES20.glAttachShader(mProgram, fragmentShader)
+//            //连接到着色器程序
+//            GLES20.glLinkProgram(mProgram)
+//        }
     }
 }
