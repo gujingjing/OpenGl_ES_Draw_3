@@ -6,6 +6,7 @@ import android.os.Bundle
 import gjj.retrofit.design.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import opengl.es.graph.Triangle
+import opengl.es.graph.TriangleRenderColorFull
 import opengl.es.graph.TriangleWithCamera
 import opengl.es.util.Utils
 
@@ -29,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         //三角形
 //        glsurfaceview.setRenderer(Triangle())
         //等腰三角形
-        glsurfaceview.setRenderer(TriangleWithCamera())
+//        glsurfaceview.setRenderer(TriangleWithCamera())
+        //彩色三角形
+        glsurfaceview.setRenderer(TriangleRenderColorFull())
 
 
 
