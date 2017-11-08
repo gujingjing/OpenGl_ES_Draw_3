@@ -1,9 +1,6 @@
 package opengl.es.util
 
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
-import java.nio.FloatBuffer
-import java.nio.IntBuffer
+import java.nio.*
 
 
 /**
@@ -34,6 +31,19 @@ class BufferUtil {
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
             var intBuffer = mbb.asIntBuffer()
+            intBuffer.put(a)
+            intBuffer.position(0)
+            return intBuffer
+        }
+
+        @JvmStatic
+        fun shortToBuffer(a: ShortArray): ShortBuffer? {
+
+            //先初始化buffer，数组的长度*4，因为一个float占4个字节
+            var mbb = ByteBuffer.allocateDirect(a.size * 4)
+            //数组排序用nativeOrder
+            mbb.order(ByteOrder.nativeOrder())
+            var intBuffer = mbb.asShortBuffer()
             intBuffer.put(a)
             intBuffer.position(0)
             return intBuffer
