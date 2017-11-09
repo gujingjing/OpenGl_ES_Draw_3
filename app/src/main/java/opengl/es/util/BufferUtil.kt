@@ -12,9 +12,9 @@ class BufferUtil {
     companion object {
 
         @JvmStatic
-        fun floatToBuffer(a: FloatArray): FloatBuffer? {
+        fun floatToBuffer(a: FloatArray?): FloatBuffer? {
             //先初始化buffer，数组的长度*4，因为一个float占4个字节
-            var mbb = ByteBuffer.allocateDirect(a.size * 4)
+            var mbb = ByteBuffer.allocateDirect((a?.size?:0)* 4)
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
             var mBuffer = mbb.asFloatBuffer()
@@ -27,7 +27,7 @@ class BufferUtil {
         fun intToBuffer(a: IntArray): IntBuffer? {
 
             //先初始化buffer，数组的长度*4，因为一个float占4个字节
-            var mbb = ByteBuffer.allocateDirect(a.size * 4)
+            var mbb = ByteBuffer.allocateDirect(a?.size* 4)
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
             var intBuffer = mbb.asIntBuffer()
@@ -40,7 +40,7 @@ class BufferUtil {
         fun shortToBuffer(a: ShortArray): ShortBuffer? {
 
             //先初始化buffer，数组的长度*4，因为一个float占4个字节
-            var mbb = ByteBuffer.allocateDirect(a.size * 4)
+            var mbb = ByteBuffer.allocateDirect(a?.size* 4)
             //数组排序用nativeOrder
             mbb.order(ByteOrder.nativeOrder())
             var intBuffer = mbb.asShortBuffer()
