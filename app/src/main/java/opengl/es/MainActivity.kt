@@ -35,8 +35,9 @@ class MainActivity : AppCompatActivity() {
         //正方形
 //        glsurfaceview.setRenderer(TriangleSquare())
         //圆形
-        glsurfaceview.setRenderer(Oval())
-
+//        glsurfaceview.setRenderer(Oval())
+        //正方体
+        glsurfaceview.setRenderer(Cube())
 
 
 
